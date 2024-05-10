@@ -7,15 +7,14 @@ func longestConsecutive(nums []int) int {
 	for _, v := range nums {
 		uniqNums[v] = true
 	}
-
 	for k := range uniqNums {
 		if !uniqNums[k-1] {
-			length := 1
-			for uniqNums[k+length] {
-				length++
+			count := 1
+			for uniqNums[k+count] {
+				count++
 			}
-			if length > longestLength {
-				longestLength = length
+			if longestLength < count {
+				longestLength = count
 			}
 		}
 	}
